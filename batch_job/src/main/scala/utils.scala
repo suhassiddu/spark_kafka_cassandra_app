@@ -20,9 +20,12 @@ object SparkUtils {
 
     // Check if running from IDE
     if (isIDE) {
-      System.setProperty("hadoop.home.dir", "F:\\Libraries\\WinUtils") // required for winutils
+      System.setProperty("hadoop.home.dir", 
+	  // "F:\\Libraries\\WinUtils"
+	  "~/WinUtils") // required for winutils
       conf.setMaster("local[*]")
-      checkpointDirectory = "file:///f:/temp"
+	  // checkpointDirectory = "file:///f:/temp"
+      checkpointDirectory = "/tmp"
     } else {
       checkpointDirectory = "hdfs://lambda-pluralsight:9000/spark/checkpoint"
     }
